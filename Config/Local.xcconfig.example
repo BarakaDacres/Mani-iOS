@@ -1,0 +1,2 @@
+// Copy to Config/Local.xcconfig and fill in.
+DEVELOPMENT_TEAM = ABCDE12345

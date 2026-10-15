@@ -1,0 +1,4 @@
+// Shared build settings. Put personal overrides (Team ID etc.) in Config/Local.xcconfig (git-ignored).
+APP_GROUP = group.com.barakadacres.mani
+ICLOUD_CONTAINER = iCloud.com.barakadacres.mani
+#include? "Local.xcconfig"
