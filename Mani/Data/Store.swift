@@ -52,7 +52,7 @@ struct DataService {
         let streams = StreamSeed.defaults.enumerated().map { i, s in
             IncomeStream(name: s.name, color: s.color, icon: s.icon, defaultClient: s.defaultClient ?? "", sortOrder: i)
         }
-        streams.forEach(context.insert)
+        for s in streams { context.insert(s) }
         if sample {
             let cal = Calendar.current, today = cal.startOfDay(for: .now)
             for (offset, cents, si, client) in [(2, 80000, 0, "Glenn"), (1, 37548, 1, "Tom"), (0, 18933, 1, "Tom"),
@@ -89,7 +89,7 @@ struct DataService {
         let sid: UUID? = entry.seriesID
         let from = entry.date
         let d = FetchDescriptor<IncomeEntry>(predicate: #Predicate { $0.seriesID == sid && $0.date >= from })
-        (try? context.fetch(d))?.forEach(context.delete)
+        for e in (try? context.fetch(d)) ?? [] { context.delete(e) }
         commit()
     }
 

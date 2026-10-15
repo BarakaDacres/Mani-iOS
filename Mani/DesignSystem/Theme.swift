@@ -11,7 +11,7 @@ extension Color {
     }
 
     /// A colour that switches between dark and light values.
-    static func adaptive(dark: UInt32, light: UInt32, darkAlpha: Double = 1, lightAlpha: Double = 1) -> Color {
+    nonisolated static func adaptive(dark: UInt32, light: UInt32, darkAlpha: Double = 1, lightAlpha: Double = 1) -> Color {
         Color(UIColor { tc in
             let (hex, a) = tc.userInterfaceStyle == .dark ? (dark, darkAlpha) : (light, lightAlpha)
             return UIColor(red: CGFloat((hex >> 16) & 0xFF) / 255, green: CGFloat((hex >> 8) & 0xFF) / 255,

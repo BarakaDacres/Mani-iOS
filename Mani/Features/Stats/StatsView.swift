@@ -175,8 +175,8 @@ struct StatsView: View {
                 }
             }
             .chartXSelection(value: $scrubbed)
-            .chartYAxis { AxisMarks(position: .leading) { AxisGridLine().foregroundStyle(Theme.hairline); AxisValueLabel() } }
-            .chartXAxis { AxisMarks(values: .automatic(desiredCount: 6)) { AxisValueLabel(format: xFormat) } }
+            .chartYAxis { AxisMarks(position: .leading) { _ in AxisGridLine().foregroundStyle(Theme.hairline); AxisValueLabel() } }
+            .chartXAxis { AxisMarks(values: .automatic(desiredCount: 6)) { _ in AxisValueLabel(format: xFormat) } }
             .frame(height: 220)
             .animation(Motion.spring, value: granularity)
             .animation(Motion.spring, value: filter?.id)
